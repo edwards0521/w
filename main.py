@@ -849,42 +849,12 @@ selected_x = selected_year - 1908
 
 predicted_temp = intercept + slope * selected_x
 
-
-st.markdown(
-    f"""
-    <div style="
-        background-color: #f5f7fa;
-        border-radius: 15px;
-        padding: 30px;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    ">
-        <div style="
-            font-size: 22px;
-            color: #555;
-        ">
-            {selected_year}년 예상 연평균기온
-        </div>
-
-        <div style="
-            font-size: 56px;
-            font-weight: bold;
-            margin-top: 10px;
-        ">
-            {predicted_temp:.2f}℃
-        </div>
-
-        <div style="
-            font-size: 15px;
-            color: #777;
-        ">
-            전체 기간 회귀선 기준
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
+st.metric(
+    label=f"{selected_year}년 예상 연평균기온",
+    value=f"{predicted_temp:.2f}℃"
 )
+
+st.caption("전체 기간 회귀선 기준")
 
 # ---------------------------------------
 # 1900~2100 예상 회귀선
