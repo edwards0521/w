@@ -836,14 +836,13 @@ st.plotly_chart(
 # ---------------------------------------
 st.subheader("🔮 연도를 선택해 예상 기온 확인하기")
 
-selected_year = st.slider(
     "예상 기온을 확인할 연도",
     min_value=1900,
     max_value=2100,
     value=2025,
-    step=1
+    step=1,
+    key="prediction_year_slider"
 )
-
 
 selected_x = selected_year - 1908
 
